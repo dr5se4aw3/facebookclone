@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-
   end
 
   def create
@@ -14,7 +13,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      flash[:notice] = 'ログインしてください'
+      redirect_to new_session_path
+    end
   end
 
   private
