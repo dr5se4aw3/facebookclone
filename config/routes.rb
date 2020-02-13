@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '', to: 'sessions#new'
   #ユーザー管理機能のルーティング
   resources :users, only: [:new, :create, :show]
 

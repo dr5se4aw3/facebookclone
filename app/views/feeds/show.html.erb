@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>user_id:<%= @feed.user_id %></strong>
-  <strong>Image:</strong>
-  <%= image_tag @feed.image.url %>
+  <p><strong>投稿者:<%= @feed.user.name %></strong></p>
+  <p><strong>本文：<%= @feed.content %></strong></p>
+  <p><strong>Image:</strong></p>
+    <%= image_tag @feed.image.url %>
 </p>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |

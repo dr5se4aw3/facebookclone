@@ -1,10 +1,14 @@
 <h2>確認画面</h2>
 <div class="image_area">
   <%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
+    <p>本文：</p>
+    <%= @feed.content %>
+    <p>写真：</p>
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.hidden_field :image_cache %>
     <%= form.hidden_field :user_id %>
-    <%= form.submit "投稿する" %>
+    <%= form.hidden_field :content %>
+    <p><%= form.submit "投稿する" %></p>
   <% end %>
 </div>
 

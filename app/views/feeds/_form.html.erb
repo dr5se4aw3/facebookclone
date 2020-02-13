@@ -12,7 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
+    <p>本文：</p>
+    <%= form.text_area :content, size: "80x10" %>
+    <p>写真：</p>
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
@@ -20,6 +22,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "投稿する" %>
   </div>
 <% end %>

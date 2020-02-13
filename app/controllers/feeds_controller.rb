@@ -22,7 +22,8 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-  @feed = current_user.feeds.build(feed_params)
+    @feed = current_user.feeds.build(feed_params)
+    render :new if @feed.invalid?
   end
 
   # GET /feeds/1/edit
@@ -36,7 +37,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        format.html { redirect_to @feed, notice: '投稿が完了しました' }
         format.json { render :show, status: :created, location: @feed }
       else
         format.html { render :new }
@@ -50,7 +51,7 @@ class FeedsController < ApplicationController
   def update
     respond_to do |format|
       if @feed.update(feed_params)
-        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
+        format.html { redirect_to @feed, notice: '編集が完了しました.' }
         format.json { render :show, status: :ok, location: @feed }
       else
         format.html { render :edit }
@@ -64,7 +65,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     respond_to do |format|
-      format.html { redirect_to feeds_url, notice: 'Feed was successfully destroyed.' }
+      format.html { redirect_to feeds_url, notice: '投稿の削除が完了しました.' }
       format.json { head :no_content }
     end
   end
@@ -77,6 +78,6 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:image, :image_cache, :user_id)
+      params.require(:feed).permit(:image, :image_cache, :user_id, :content)
     end
 end
