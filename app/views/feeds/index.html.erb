@@ -1,7 +1,8 @@
 <div class="main-container">
   <div class="index_container">
-    <h1>投稿一覧</h1>
-    <%= link_to '新規投稿', new_feed_path %>
+    <ul>
+      <li><h1>投稿一覧</h1></li>
+    </ul>
     <% @feeds.each do |feed| %>
       <div class="feed">
         <div class="feed-top">

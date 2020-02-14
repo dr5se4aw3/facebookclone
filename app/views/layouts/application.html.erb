@@ -27,6 +27,7 @@
                   <ul class="nav navbar-nav">
                     <li><%= link_to "プロフィール", user_path(current_user.id) ,id:"nav-content"%></li>
                     <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete ,id:"nav-content"%></li>
+                    <li><%= link_to '新規投稿', new_feed_path ,id:"nav-content"%></li>
                   </ul>
                 </div>
               <% else %>
