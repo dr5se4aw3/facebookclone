@@ -4,27 +4,57 @@
     <title>FbClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <header>
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, id: "#{key}") %>
-      <% end %>
-
-      <% if logged_in? %>
-        <%= link_to "Profile", user_path(current_user.id) %>
-        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Login", new_session_path %>
-      <% end %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="row header-row">
+            <div class="col-md-8 col-md-offset-2">
+              <a class="navbar-brand" id="nav-content">FaceBookClone</a>
+              <% if logged_in? %>
+              <% else %>
+                <div id="gnavi">
+                  <ul class="nav navbar-nav">
+                    <li><%=link_to "新しいアカウントを作成", new_user_path ,id:"nav-content"%></li>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+            <div class="header-right pull-right">
+              <% if logged_in? %>
+                <div id="gnavi">
+                  <ul class="nav navbar-nav">
+                    <li><%= link_to "プロフィール", user_path(current_user.id) ,id:"nav-content"%></li>
+                    <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete ,id:"nav-content"%></li>
+                  </ul>
+                </div>
+              <% else %>
+                <div id="gnavi">
+                  <ul class="nav navbar-nav">
+                    <li><%= link_to "ユーザー登録", new_user_path ,id:"nav-content"%></li>
+                    <li><%= link_to "ログイン", new_session_path ,id:"nav-content"%></li>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
-    <main>
-      <%= yield %>
-    </main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, id: "#{key}") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
   </body>
 </html>

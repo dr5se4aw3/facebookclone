@@ -1,0 +1,22 @@
+
+.navbar{
+  background-color: #4493e2;
+}
+
+#nav-content{
+  color: white;
+}
+
+.login-container{
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.login-form{
+  margin: auto;
+}
+
+.login-form-content{
+  padding: 10px 0 ;
+}

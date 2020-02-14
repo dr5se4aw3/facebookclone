@@ -1,8 +1,20 @@
-<h1>ログイン</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email %>
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="login-container">
+      <h3>ログイン</h3>
+      <div class="login-form">
+      <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <div class="login-form-content" >
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email %>
+        </div>
+        <div class="login-form-content" >
+          <%= f.label :password, "パスワード" %>
+          <%= f.password_field :password %>
+        </div>
+        <div class="login-form-content" >
+          <%= f.submit "FaceBookCloneにログイン" %>
+        </div>
+      <% end %>
+      </div>
+  </div>
+</div>
