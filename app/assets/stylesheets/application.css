@@ -14,3 +14,37 @@
  *= require_tree .
  *= require_self
  */
+html{
+height: 100vh;
+}
+
+body{
+height: 100vh;
+margin: 0 auto;
+}
+
+.main-container{
+  padding-top: 20px;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  background-color: #e2e2e2;
+  height: 100vh;
+}
+
+.footer{
+  background-color: #4D4D4D;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: table;
+}
+
+.footer p{
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}

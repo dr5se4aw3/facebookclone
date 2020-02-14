@@ -1,0 +1,52 @@
+html{
+  font-family: fantasy;
+}
+
+body{
+  margin: 0 auto;
+}
+
+li{
+  list-style: none;
+}
+
+h1{
+  margin: 0;
+}
+
+.index_container{
+  margin: 0 20%;
+  padding-top: 20px;
+}
+
+.feed {
+  border: solid;
+  border-radius: 10px;
+  width: 60%;
+  margin: 30px auto;
+  padding: 0 20px;
+  background-color: white;
+}
+
+@media (max-width: 767px) {
+  .feed{
+    width: 100%;
+  }
+}
+
+.feed #content{
+  padding: 10px 0;
+}
+
+#feed-top{
+  padding-top: 5px;
+}
+
+.btn-group button{
+  background-color: #0fb3e0;
+  color: white;
+}
+
+.feed img{
+  width: 100%;
+}
