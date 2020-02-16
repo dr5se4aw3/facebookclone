@@ -1,18 +1,19 @@
-<h2>確認画面</h2>
-<div class="image_area">
-  <%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
-    <p>本文：</p>
-    <%= @feed.content %>
-    <p>写真：</p>
-    <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
-    <%= form.hidden_field :image_cache %>
-    <%= form.hidden_field :user_id %>
-    <%= form.hidden_field :content %>
-    <p><%= form.submit "投稿する" %></p>
-  <% end %>
+<div class="main-container">
+  <h2>確認画面</h2>
+  <div class="index_container">
+    <%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
+      <p>本文：</p>
+      <p><%= @feed.content %></p>
+      <p>写真：</p>
+      <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.hidden_field :user_id %>
+      <%= form.hidden_field :content %>
+      <p><%= form.submit "投稿する" %></p>
+    <% end %>
+    <%= form_with(model: @feed, url: new_feed_path, local: true ,method: "get") do |form| %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.submit "戻る", name: "back" %>
+    <% end %>
+  </div>
 </div>
-
-<%= form_with(model: @feed, url: new_feed_path, local: true ,method: "get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.submit "戻る", name: "back" %>
-<% end %>

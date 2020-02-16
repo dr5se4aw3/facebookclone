@@ -1,23 +1,26 @@
-<h1>ユーザー登録</h1>
-<% if @user.errors.any? %>
-  <div class="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="user-container">
+  <h1>ユーザー登録</h1>
+  <% if @user.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="user-form">
+    <%= form_with(model: @user, local:true) do |f| %>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name %>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+      <%= f.label :password_confirmation, "パスワード確認用" %>
+      <%= f.password_field :password_confirmation %>
+      <p><%= f.submit "登録する" %></p>
     <% end %>
-    </ul>
   </div>
-<% end %>
-
-<%= form_with(model: @user, local:true) do |f| %>
-  <%= f.label :name, "名前" %>
-  <%= f.text_field :name %>
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email %>
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation, "パスワード確認用" %>
-  <%= f.password_field :password_confirmation %>
-  <p><%= f.submit "登録する" %></p>
-<% end %>
+</div>
